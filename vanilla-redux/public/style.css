@@ -4,6 +4,7 @@ body {
   background: #e8cbc0;
   background: -webkit-linear-gradient(to right, #636fa4, #e8cbc0);
   background: linear-gradient(to right, #636fa4, #e8cbc0);
+  font-family: "Inconsolata", monospace;
 }
 #root {
   display: flex;
@@ -14,6 +15,7 @@ body {
 }
 .images {
   display: flex;
+  justify-content: center;
 }
 .images img {
   width: 70px;
@@ -49,6 +51,31 @@ form input[type="submit"] {
   border-radius: 2px;
   font-size: 18px;
 }
+ul {
+  margin: 0;
+  padding: 0;
+  padding-top: 15px;
+  padding-left: 25px;
+}
+ul li {
+  list-style: none;
+  margin-bottom: 10px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+ul li .fas {
+  margin-right: 8px;
+  color: black;
+}
+button {
+  border: none;
+  background-color: transparent;
+  margin-left: 3px;
+  cursor: pointer;
+}
+
+/* ##### index2.js ##### */
 .count_number {
   display: flex;
   align-items: center;
