@@ -1,6 +1,5 @@
 const { createStore } = require("redux");
 
-const form = document.querySelector('form');
 const todoInput = document.getElementById('todoInput');
 const todoSubmit = document.getElementById('todoSubmit');
 const ul = document.querySelector('ul');
