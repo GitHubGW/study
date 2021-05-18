@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #e8cbc0;
+  background: -webkit-linear-gradient(to right, #636fa4, #e8cbc0);
+  background: linear-gradient(to right, #636fa4, #e8cbc0);
+  font-family: "Inconsolata", monospace;
+}
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+.images {
+  display: flex;
+  justify-content: center;
+}
+.images img {
+  width: 70px;
+}
+.images img:first-child {
+  margin-right: 5px;
+}
+.main_content {
+  display: flex;
+  margin-top: 20px;
+}
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form input {
+  margin-right: 5px;
+  padding: 7px 10px;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  font-size: 18px;
+}
+form input[type="submit"] {
+  border: none;
+  background-color: lightgray;
+  cursor: pointer;
+  color: white;
+  padding: 7px 12px;
+  margin: 0 3px;
+  font-size: 16px;
+  border-radius: 2px;
+  font-size: 18px;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  padding-top: 15px;
+  padding-left: 25px;
+}
+ul li {
+  list-style: none;
+  margin-bottom: 10px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+ul li .fas {
+  margin-right: 8px;
+  color: black;
+}
+button {
+  border: none;
+  background-color: transparent;
+  margin-left: 3px;
+  cursor: pointer;
+}
+
+/* ##### index2.js ##### */
+.count_number {
+  display: flex;
+  align-items: center;
+  display: none;
+}
+#number {
+  font-size: 22px;
+  color: white;
+  margin-right: 10px;
+  margin-left: 50px;
+}
+#addBtn,
+#minusBtn {
+  border: none;
+  background-color: lightgray;
+  cursor: pointer;
+  color: white;
+  padding: 7px 12px;
+  margin: 0 3px;
+  font-size: 16px;
+}
