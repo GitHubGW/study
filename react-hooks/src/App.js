@@ -6,24 +6,23 @@ const useTitle = (initialTitle) => {
   const updateTitle = (value) => {
     console.log("updateTitle");
     const htmlTitle = document.querySelector("title");
-    setTitle(value);
     htmlTitle.innerHTML = title;
   };
 
   useEffect(updateTitle);
 
-  return updateTitle;
+  return setTitle;
 };
 
 function App() {
-  const aaa = useTitle("Loading...");
+  const setTitle = useTitle("Loading...");
 
   return (
     <div>
       <h1>useTitle</h1>
       <button
         onClick={() => {
-          aaa("hello");
+          setTitle("hello");
         }}
       >
         Change Title
