@@ -14,7 +14,7 @@ const useTitle = (initialTitle) => {
   return setTitle;
 };
 
-function App() {
+function UseTitle() {
   const setTitle = useTitle("Loading...");
 
   return (
@@ -31,4 +31,4 @@ function App() {
   );
 }
 
-export default App;
+export default UseTitle;
