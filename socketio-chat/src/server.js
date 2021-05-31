@@ -23,5 +23,9 @@ const io = socketIO(server);
 
 io.on("connection", (socket) => {
   console.log("Socket.IO Connected");
-  socket.emit("sendMessage", { message: "Hello" });
+
+  socket.on("setNickname", ({ nickname }) => {
+    socket.nickname = nickname;
+    socket.broadcast.emit("newUser", { nickname });
+  });
 });
