@@ -23,5 +23,5 @@ const io = socketIO(server);
 
 io.on("connection", (socket) => {
   console.log("Socket.IO Connected");
-  // socket.emit("sendMessage", { message: "Hello" });
+  socket.emit("sendMessage", { message: "Hello" });
 });

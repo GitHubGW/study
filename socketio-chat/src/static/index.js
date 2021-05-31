@@ -1,2 +1,6 @@
 // eslint-disable-next-line no-undef
-const socket = io("ws://echo.websocket.org");
+const socket = io("/");
+
+socket.on("sendMessage", ({ message }) => {
+  console.log(message);
+});
