@@ -2,7 +2,7 @@
 "use strict";
 
 },{}],2:[function(require,module,exports){
-"use strict";var _notification=require("./notification"),body=document.querySelector("body"),form=document.getElementById("jsForm"),isLogin=!1,NICKNAME="nickname",lsNickname=localStorage.getItem(NICKNAME),login=function(e){var n=io("/");n.emit("setNickname",{nickname:e}),n.on("newUser",function(e){var n=e.nickname,i="".concat(n," just joined");return(0,_notification.alertNotification)(i,"dodgerblue")})},handleFormSubmit=function(e){e.preventDefault();var n=form.querySelector("input");localStorage.setItem(NICKNAME,n.value),isLogin=!0,login(n.value),n.value=""};form&&form.addEventListener("submit",handleFormSubmit),null===lsNickname?isLogin=!1:(isLogin=!0,login(lsNickname));
+"use strict";var _notification=require("./notification"),body=document.querySelector("body"),form=document.getElementById("jsForm"),isLogin=!1,NICKNAME="nickname",lsNickname=localStorage.getItem(NICKNAME),login=function(n){var e=io("/");e.emit("setNickname",{nickname:n}),e.on("userJoin",function(n){var e=n.nickname,i="".concat(e," just joined");return(0,_notification.alertNotification)(i,"dodgerblue")}),e.on("userLeft",function(n){var e=n.nickname,i="".concat(e," just lefted");return(0,_notification.alertNotification)(i,"orange")})},handleFormSubmit=function(n){n.preventDefault();var e=form.querySelector("input");localStorage.setItem(NICKNAME,e.value),isLogin=!0,login(e.value),e.value=""};form&&form.addEventListener("submit",handleFormSubmit),null===lsNickname?isLogin=!1:(isLogin=!0,login(lsNickname));
 
 },{"./notification":4}],3:[function(require,module,exports){
 "use strict";require("./login"),require("./notification"),require("./chat"),require("./sockets");

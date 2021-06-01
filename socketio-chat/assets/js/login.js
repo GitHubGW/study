@@ -12,9 +12,15 @@ const login = (nickname) => {
   const socket = io("/");
   socket.emit("setNickname", { nickname });
 
-  socket.on("newUser", ({ nickname }) => {
+  socket.on("userJoin", ({ nickname }) => {
     const text = `${nickname} just joined`;
     const color = "dodgerblue";
+    return alertNotification(text, color);
+  });
+
+  socket.on("userLeft", ({ nickname }) => {
+    const text = `${nickname} just lefted`;
+    const color = "orange";
     return alertNotification(text, color);
   });
 };

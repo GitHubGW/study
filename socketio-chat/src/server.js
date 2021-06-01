@@ -26,6 +26,10 @@ io.on("connection", (socket) => {
 
   socket.on("setNickname", ({ nickname }) => {
     socket.nickname = nickname;
-    socket.broadcast.emit("newUser", { nickname });
+    socket.broadcast.emit("userJoin", { nickname });
+  });
+
+  socket.on("disconnect", () => {
+    socket.broadcast.emit("userLeft", { nickname: socket.nickname });
   });
 });

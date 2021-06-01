@@ -35,6 +35,6 @@
   "scripts": {
     "start": "nodemon --exec babel-node src/server.js",
     "dev:build": "gulp build",
-    "dev:serve": "gulp dev"
+    "dev:server": "gulp dev"
   }
 }
