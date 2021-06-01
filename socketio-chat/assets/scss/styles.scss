@@ -1,2 +1,26 @@
 @import "_reset";
 @import "_variables";
+@import "loginContainer";
+@import "chatContainer";
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  &.login {
+    .loginContainer {
+      // display: none;
+    }
+  }
+  &.logout {
+    .loginContainer {
+      display: block;
+    }
+  }
+  section {
+    width: 550px;
+    height: 900px;
+    background-color: $bgColor;
+  }
+}

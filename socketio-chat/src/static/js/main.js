@@ -1,16 +1,13 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-"use strict";
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var chatBox=document.getElementById("jsChatBox"),chatForm=document.getElementById("jsChatForm"),handleGetMessage=function(e){var t=e.message,a=e.nickname;console.log(t,a);var n=document.createElement("li");n.innerHTML="message: ".concat(t),chatBox.appendChild(n)},handleChatForm=function(e){e.preventDefault();var t=chatForm.querySelector("input"),a=t.value;io("/").emit("sendMessage",{message:a}),t.value=""};chatForm&&chatForm.addEventListener("submit",handleChatForm);var _default=handleGetMessage;exports.default=_default;
 
 },{}],2:[function(require,module,exports){
-"use strict";var _notification=require("./notification"),body=document.querySelector("body"),form=document.getElementById("jsForm"),isLogin=!1,NICKNAME="nickname",lsNickname=localStorage.getItem(NICKNAME),login=function(n){var e=io("/");e.emit("setNickname",{nickname:n}),e.on("userJoin",function(n){var e=n.nickname,i="".concat(e," just joined");return(0,_notification.alertNotification)(i,"dodgerblue")}),e.on("userLeft",function(n){var e=n.nickname,i="".concat(e," just lefted");return(0,_notification.alertNotification)(i,"orange")})},handleFormSubmit=function(n){n.preventDefault();var e=form.querySelector("input");localStorage.setItem(NICKNAME,e.value),isLogin=!0,login(e.value),e.value=""};form&&form.addEventListener("submit",handleFormSubmit),null===lsNickname?isLogin=!1:(isLogin=!0,login(lsNickname));
+"use strict";var _chat=_interopRequireDefault(require("./chat")),_notification=_interopRequireDefault(require("./notification"));function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}var body=document.querySelector("body"),form=document.getElementById("jsForm"),NICKNAME="nickname",LOGIN="login",LOGOUT="logout",lsNickname=localStorage.getItem(NICKNAME),login=function(e){var t=io("/");t.emit("setNickname",{nickname:e}),t.on("userJoin",function(e){var t=e.nickname,n="".concat(t," just joined");return(0,_notification.default)(n,"dodgerblue")}),t.on("userLeft",function(e){var t=e.nickname,n="".concat(t," just lefted");return(0,_notification.default)(n,"orange")}),t.on("getMessage",_chat.default)},handleFormSubmit=function(e){e.preventDefault();var t=form.querySelector("input");localStorage.setItem(NICKNAME,t.value),body.className=LOGIN,login(t.value),t.value=""};form&&form.addEventListener("submit",handleFormSubmit),null===lsNickname?body.className=LOGOUT:(body.className=LOGIN,login(lsNickname));
 
-},{"./notification":4}],3:[function(require,module,exports){
-"use strict";require("./login"),require("./notification"),require("./chat"),require("./sockets");
+},{"./chat":1,"./notification":4}],3:[function(require,module,exports){
+"use strict";require("./login"),require("./notification"),require("./chat");
 
-},{"./chat":1,"./login":2,"./notification":4,"./sockets":5}],4:[function(require,module,exports){
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.alertNotification=void 0;var body=document.querySelector("body"),alertNotification=function(e,t){var o=document.createElement("div");o.innerHTML=e,o.style.backgroundColor=t,o.className="notification",body.appendChild(o)};exports.alertNotification=alertNotification;
-
-},{}],5:[function(require,module,exports){
-"use strict";
+},{"./chat":1,"./login":2,"./notification":4}],4:[function(require,module,exports){
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var body=document.querySelector("body"),alertNotification=function(e,t){var o=document.createElement("div");o.innerHTML=e,o.style.backgroundColor=t,o.className="notification",body.appendChild(o)},_default=alertNotification;exports.default=_default;
 
 },{}]},{},[3]);

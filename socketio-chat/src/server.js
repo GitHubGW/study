@@ -11,7 +11,7 @@ app.set("views", join(__dirname, "views"));
 app.use(morgan("dev"));
 app.use(express.static(join(__dirname, "static")));
 app.get("/", (req, res) => {
-  res.render("home", { title: "Home" });
+  res.render("home", { title: "KakaoTalk" });
 });
 
 const handleListening = (rqe, res) => {
@@ -31,5 +31,9 @@ io.on("connection", (socket) => {
 
   socket.on("disconnect", () => {
     socket.broadcast.emit("userLeft", { nickname: socket.nickname });
+  });
+
+  socket.on("sendMessage", ({ message }) => {
+    socket.broadcast.emit("getMessage", { message, nickname: socket.nickname });
   });
 });

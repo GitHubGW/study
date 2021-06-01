@@ -4,12 +4,19 @@ html(lang="ko")
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="shortcut icon", href="/kakaotalk.png")
     link(rel="stylesheet", href="/styles/styles.css")
     title #{title}
-  body 
-    .loginBox 
-      form#jsForm
-        input(type="text" placeholder="Write your Nickname")
+  body
+    section
+      .loginContainer
+        form#jsForm
+          input(type="text" placeholder="닉네임을 입력해주세요.")
+      .chatContainer 
+        .chatContent
+          ul.chatBox#jsChatBox 
+          form.chatForm#jsChatForm
+            input(type="text" placeholder="메세지 입력")
 
     script(src="/socket.io/socket.io.js")
     script(src="/js/main.js") 

@@ -1,0 +1,14 @@
+.chatContainer {
+  border: 3px solid orange;
+  .chatContent {
+    .chatBox {
+      border: 3px solid green;
+      height: 60vh;
+    }
+    .chatForm {
+      input {
+        padding: 20px;
+      }
+    }
+  }
+}

@@ -1,10 +1,12 @@
-import { alertNotification } from "./notification";
+import handleGetMessage from "./chat";
+import alertNotification from "./notification";
 
 const body = document.querySelector("body");
 const form = document.getElementById("jsForm");
 
-let isLogin = false;
 const NICKNAME = "nickname";
+const LOGIN = "login";
+const LOGOUT = "logout";
 
 const lsNickname = localStorage.getItem(NICKNAME);
 
@@ -23,13 +25,15 @@ const login = (nickname) => {
     const color = "orange";
     return alertNotification(text, color);
   });
+
+  socket.on("getMessage", handleGetMessage);
 };
 
 const handleFormSubmit = (event) => {
   event.preventDefault();
   const input = form.querySelector("input");
   localStorage.setItem(NICKNAME, input.value);
-  isLogin = true;
+  body.className = LOGIN;
   login(input.value);
   input.value = "";
 };
@@ -39,8 +43,8 @@ if (form) {
 }
 
 if (lsNickname === null) {
-  isLogin = false;
+  body.className = LOGOUT;
 } else {
-  isLogin = true;
+  body.className = LOGIN;
   login(lsNickname);
 }
