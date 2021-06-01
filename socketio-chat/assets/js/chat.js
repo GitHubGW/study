@@ -4,7 +4,7 @@ const chatForm = document.getElementById("jsChatForm");
 const handleGetMessage = ({ message, nickname }) => {
   console.log(message, nickname);
   const li = document.createElement("li");
-  li.innerHTML = `message: ${message}`;
+  li.innerHTML = `${nickname}: ${message}`;
   chatBox.appendChild(li);
 };
 
