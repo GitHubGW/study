@@ -4,6 +4,16 @@
     .chatBox {
       border: 3px solid green;
       height: 60vh;
+      li {
+        span {
+          &.opponent {
+            color: red;
+          }
+          &.me {
+            color: blue;
+          }
+        }
+      }
     }
     .chatForm {
       input {

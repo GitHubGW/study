@@ -33,7 +33,7 @@ io.on("connection", (socket) => {
     socket.broadcast.emit("userLeft", { nickname: socket.nickname });
   });
 
-  socket.on("sendMessage", ({ message }) => {
-    socket.broadcast.emit("getMessage", { message, nickname: socket.nickname });
+  socket.on("sendMessage", ({ message, nickname }) => {
+    socket.broadcast.emit("getMessage", { message, nickname });
   });
 });
