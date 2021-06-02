@@ -4,9 +4,10 @@ html(lang="ko")
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    //- link(rel="shortcut icon", href="/kakaotalk.png")
+    link(rel="shortcut icon", href="/images/kakaotalk.png")
     link(rel="stylesheet", href="/styles/styles.css")
-    title #{title2}
+    link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.15.3/css/all.css")
+    title #{title}
   body
     section
       .loginContainer
@@ -14,10 +15,27 @@ html(lang="ko")
           input(type="text" placeholder="닉네임을 입력해주세요.")
       .chatContainer 
         .chatContent
+          .chatHeader
+            .chatHeader_first 
+              i.fas.fa-circle
+              i.fas.fa-circle
+              i.fas.fa-circle
+              i.far.fa-circle
+              i.far.fa-circle
+              i.fas.fa-wifi
+            .chatHeader_second #{new Date().getHours()}:#{new Date().getMinutes() < 10 ? `0${new Date().getMinutes()}` : new Date().getMinutes()}
+            .chatHeader_third
+              i.fas.fa-clock
+              i.fab.fa-bluetooth-b
+              span 75%
+              i.fas.fa-battery-three-quarters
           ul.chatBox#jsChatBox 
           form.chatForm#jsChatForm
-            input(type="text" placeholder="메세지 입력")
+            .chatFormDiv
+              i.fas.fa-plus-square
+              input(type="text" placeholder="메세지 입력")
+              i.far.fa-smile
+              button.sendMessage 전송
 
     script(src="/socket.io/socket.io.js")
     script(src="/js/main.js") 
-    script(src="/index.js")

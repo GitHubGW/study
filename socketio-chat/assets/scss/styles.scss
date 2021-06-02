@@ -19,8 +19,9 @@ body {
     }
   }
   section {
-    width: 550px;
-    height: 900px;
-    background-color: $bgColor;
+    width: 600px;
+    height: 100vh;
+    background: url("../images/iphone2.png") no-repeat center center;
+    background-size: 680px;
   }
 }
