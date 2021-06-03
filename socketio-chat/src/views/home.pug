@@ -4,15 +4,19 @@ html(lang="ko")
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    link(rel="shortcut icon", href="/images/kakaotalk.png")
+    //- link(rel="shortcut icon", href="/images/kakaotalk.png")
     link(rel="stylesheet", href="/styles/styles.css")
     link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.15.3/css/all.css")
-    title #{title}
+    //- title #{title}
   body
     section
       .loginContainer
-        form#jsForm
-          input(type="text" placeholder="닉네임을 입력해주세요.")
+        .loginHeader
+        .loginMain
+          img(src="", alt="kakaotalk-main")
+          form#jsForm
+            input(type="text" placeholder="닉네임을 입력해주세요.")
+            button 로그인
       .chatContainer 
         .chatContent
           .chatHeader
