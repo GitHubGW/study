@@ -1,3 +1,49 @@
 .loginContainer {
-  border: 3px solid red;
+  position: relative;
+  top: 14%;
+  left: 0;
+  width: 480px;
+  height: 800px;
+  background-color: $mainBgColor;
+  display: flex;
+  justify-content: center;
+  .loginMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+    img {
+      width: 70%;
+      margin-bottom: 5px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      input {
+        border: none;
+        border: 1px solid #dcdcdc;
+        border-radius: 3px;
+        padding: 15px;
+        width: 275px;
+        box-sizing: border-box;
+        font-size: 15px;
+        &::placeholder {
+          color: #989898;
+        }
+      }
+      button {
+        border-radius: 3px;
+        margin-top: 6px;
+        border: none;
+        border: 1px solid #dcdcdc;
+        font-size: 14px;
+        color: #989898;
+        padding: 13px;
+        width: 275px;
+        box-sizing: border-box;
+        background-color: #f6f6f6;
+        cursor: pointer;
+      }
+    }
+  }
 }

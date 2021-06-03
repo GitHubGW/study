@@ -10,6 +10,7 @@
       padding: 10px 12px;
       display: flex;
       justify-content: space-between;
+      align-items: center;
       color: #222;
       .chatHeader_first {
         i {
@@ -29,15 +30,17 @@
       }
       .chatHeader_third {
         i {
-          margin-right: 5px;
+          margin-right: 6px;
           font-size: 16px;
-          &.fas.fa-battery-three-quarters {
+          &.fas.fa-battery-full {
             margin-right: 0;
+            font-size: 16px;
           }
         }
         span {
-          margin-right: 5px;
+          margin-right: 8px;
           font-size: 15px;
+          font-weight: bold;
         }
       }
     }

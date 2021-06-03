@@ -15,14 +15,14 @@ const login = (nickname) => {
   socket.emit("setNickname", { nickname });
 
   socket.on("userJoin", ({ nickname }) => {
-    const text = `${nickname ? nickname : "User"} just joined`;
+    const text = `${nickname ? nickname : "User"} 님이 들어왔습니다.`;
     const color = "dodgerblue";
     return alertNotification(text, color);
   });
 
   socket.on("userLeft", ({ nickname }) => {
     if (nickname !== undefined) {
-      const text = `${nickname ? nickname : "User"} just lefted`;
+      const text = `${nickname ? nickname : "User"} 님이 나갔습니다.`;
       const color = "orange";
       return alertNotification(text, color);
     }
@@ -41,6 +41,7 @@ const handleFormSubmit = (event) => {
 };
 
 if (form) {
+  // form.addEventListener("keydown", handleFormSubmit);
   form.addEventListener("submit", handleFormSubmit);
 }
 

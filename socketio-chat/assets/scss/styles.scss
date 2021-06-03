@@ -12,10 +12,16 @@ body {
     .loginContainer {
       display: none;
     }
+    .chatContainer {
+      display: block;
+    }
   }
   &.logout {
     .loginContainer {
-      display: block;
+      display: flex;
+    }
+    .chatContainer {
+      display: none;
     }
   }
   section {
