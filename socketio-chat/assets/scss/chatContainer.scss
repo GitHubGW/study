@@ -54,6 +54,16 @@
       display: flex;
       flex-direction: column;
       overflow: auto;
+      .date_container {
+        text-align: center;
+        background-color: #a9bdce;
+        color: #fff;
+        border-radius: 20px;
+        margin: 6px auto;
+        padding: 8px 10px;
+        font-size: 14px;
+        display: inline-block;
+      }
       li {
         display: flex;
         &.li_opponent {
@@ -177,6 +187,7 @@
           cursor: pointer;
           padding: 17px 8px;
           font-size: 14px;
+          color: #c0c0c0;
         }
       }
     }

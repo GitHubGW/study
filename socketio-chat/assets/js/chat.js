@@ -3,6 +3,21 @@ const chatForm = document.getElementById("jsChatForm");
 
 const NICKNAME = "nickname";
 
+export const handleGetDate = () => {
+  const dayArray = ["월", "화", "수", "목", "금", "토", "일"];
+
+  const year = new Date().getFullYear();
+  const month = Number(new Date().getMonth()) + 1;
+  const date = new Date().getDate();
+  const dayOfWeek = new Date().getDay();
+  const day = dayArray[dayOfWeek - 1];
+
+  const div = document.createElement("div");
+  div.className = "date_container";
+  div.innerHTML = `${year}년 ${month}월 ${date}일 ${day}요일`;
+  chatBox.appendChild(div);
+};
+
 const handleGetMessage = ({ message, nickname }) => {
   const lsNickname = localStorage.getItem(NICKNAME);
   const li = document.createElement("li");
@@ -55,8 +70,18 @@ const handleChatForm = (event) => {
 };
 
 if (chatForm) {
-  chatForm.querySelector("input").focus();
-  chatForm.addEventListener("submit", handleChatForm);
+  const input = chatForm.querySelector("input");
+  input.focus();
+  const button = chatForm.querySelector("button");
+
+  chatForm.addEventListener("keyup", (event) => {
+    if (input.value.length >= 1) {
+      button.style.color = "black";
+      chatForm.addEventListener("submit", handleChatForm);
+    } else {
+      button.style.color = "#C0C0C0";
+    }
+  });
 }
 
 export default handleGetMessage;

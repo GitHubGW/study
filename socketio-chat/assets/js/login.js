@@ -1,4 +1,4 @@
-import handleGetMessage from "./chat";
+import handleGetMessage, { handleGetDate } from "./chat";
 import alertNotification from "./notification";
 
 const body = document.querySelector("body");
@@ -36,6 +36,7 @@ const handleFormSubmit = (event) => {
   body.className = LOGIN;
   login(input.value);
   input.value = "";
+  handleGetDate();
 };
 
 const handleKeyUp = (event) => {

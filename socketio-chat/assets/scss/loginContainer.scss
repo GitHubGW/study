@@ -1,9 +1,9 @@
 .loginContainer {
   position: relative;
-  top: 50%;
+  top: 49.5%;
   left: 50%;
-  width: 490px;
-  height: 65vh;
+  width: 470px;
+  height: 64vh;
   transform: translate(-50%, -50%);
   background-color: $mainBgColor;
   display: flex;
@@ -12,7 +12,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 80px;
+    margin-top: 125px;
     img {
       width: 75%;
     }
