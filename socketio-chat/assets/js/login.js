@@ -15,16 +15,14 @@ const login = (nickname) => {
   socket.emit("setNickname", { nickname });
 
   socket.on("userJoin", ({ nickname }) => {
-    const text = `${nickname ? nickname : "User"} 님이 들어왔습니다.`;
-    const color = "dodgerblue";
-    return alertNotification(text, color);
+    const text = `${nickname ? nickname : "User"}님이 들어왔습니다.`;
+    return alertNotification(text);
   });
 
   socket.on("userLeft", ({ nickname }) => {
     if (nickname !== undefined) {
-      const text = `${nickname ? nickname : "User"} 님이 나갔습니다.`;
-      const color = "orange";
-      return alertNotification(text, color);
+      const text = `${nickname ? nickname : "User"}님이 나갔습니다.`;
+      return alertNotification(text);
     }
   });
 
@@ -40,9 +38,22 @@ const handleFormSubmit = (event) => {
   input.value = "";
 };
 
+const handleKeyUp = (event) => {
+  event.preventDefault();
+  const input = form.querySelector("input");
+  const button = form.querySelector("button");
+  const { value } = input;
+  if (value.length >= 1) {
+    button.style.color = "#707070";
+    form.addEventListener("submit", handleFormSubmit);
+  } else {
+    button.style.color = "#D3D3D3";
+    form.removeEventListener("submit", handleFormSubmit);
+  }
+};
+
 if (form) {
-  // form.addEventListener("keydown", handleFormSubmit);
-  form.addEventListener("submit", handleFormSubmit);
+  form.addEventListener("keyup", handleKeyUp);
 }
 
 if (lsNickname === null) {

@@ -1,9 +1,10 @@
 .loginContainer {
   position: relative;
-  top: 14%;
-  left: 0;
-  width: 480px;
-  height: 800px;
+  top: 50%;
+  left: 50%;
+  width: 490px;
+  height: 65vh;
+  transform: translate(-50%, -50%);
   background-color: $mainBgColor;
   display: flex;
   justify-content: center;
@@ -13,8 +14,7 @@
     align-items: center;
     margin-top: 80px;
     img {
-      width: 70%;
-      margin-bottom: 5px;
+      width: 75%;
     }
     form {
       display: flex;
@@ -28,7 +28,7 @@
         box-sizing: border-box;
         font-size: 15px;
         &::placeholder {
-          color: #989898;
+          color: #bebebe;
         }
       }
       button {
@@ -37,7 +37,7 @@
         border: none;
         border: 1px solid #dcdcdc;
         font-size: 14px;
-        color: #989898;
+        color: #d3d3d3;
         padding: 13px;
         width: 275px;
         box-sizing: border-box;

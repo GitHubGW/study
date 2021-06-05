@@ -2,6 +2,7 @@
 @import "_variables";
 @import "loginContainer";
 @import "chatContainer";
+@import "notification";
 
 body {
   display: flex;
@@ -26,8 +27,8 @@ body {
   }
   section {
     width: 600px;
-    height: 100vh;
-    background: url("../images/iphone2.png") no-repeat center center;
-    background-size: 680px;
+    height: 1160px;
+    background: url("../images/1.jpg") no-repeat center center;
+    background-size: 1100px;
   }
 }

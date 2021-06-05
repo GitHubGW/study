@@ -4,17 +4,17 @@ html(lang="ko")
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    //- link(rel="shortcut icon", href="/images/kakaotalk.png")
+    link(rel="shortcut icon", href="/images/kakaotalk.png")
     link(rel="stylesheet", href="/styles/styles.css")
     link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.15.3/css/all.css")
-    //- title #{title}
+    title #{title}
   body
     section
       .loginContainer
         .loginMain
           img(src="images/kakaotalk-logo.png", alt="kakaotalk-logo")
           form#jsForm
-            input(type="text" placeholder="닉네임을 입력해주세요.")
+            input(type="text" placeholder="닉네임을 입력해주세요." minlength="1" maxlength="12")
             button 로그인
       .chatContainer 
         .chatContent
@@ -26,7 +26,7 @@ html(lang="ko")
               i.far.fa-circle
               i.far.fa-circle
               i.fas.fa-wifi
-            .chatHeader_second #{new Date().getHours()}:#{new Date().getMinutes() < 10 ? `0${new Date().getMinutes()}` : new Date().getMinutes()}
+            .chatHeader_second #{new Date().getHours() < 10 ? `0${new Date().getHours()}` : new Date().getHours()}:#{new Date().getMinutes() < 10 ? `0${new Date().getMinutes()}` : new Date().getMinutes()}
             .chatHeader_third
               i.fas.fa-clock
               i.fab.fa-bluetooth-b
@@ -36,7 +36,7 @@ html(lang="ko")
           form.chatForm#jsChatForm
             .chatFormDiv
               i.fas.fa-plus-square
-              input(type="text" placeholder="메세지 입력")
+              input(type="text" placeholder="메세지 입력" maxlength="21")
               i.far.fa-smile
               button.sendMessage 전송
 

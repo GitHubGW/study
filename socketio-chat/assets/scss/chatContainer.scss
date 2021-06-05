@@ -1,8 +1,9 @@
 .chatContainer {
   position: absolute;
-  top: 14%;
-  left: 28%;
-  width: 480px;
+  top: 49.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 470px;
   background-color: $bgColor;
   .chatContent {
     .chatHeader {
@@ -12,6 +13,7 @@
       justify-content: space-between;
       align-items: center;
       color: #222;
+      border-bottom: 1px solid #b6cddd;
       .chatHeader_first {
         i {
           &.fas.fa-circle,
@@ -27,33 +29,119 @@
       }
       .chatHeader_second {
         font-weight: bold;
+        font-size: 14px;
       }
       .chatHeader_third {
         i {
           margin-right: 6px;
-          font-size: 16px;
+          font-size: 14px;
           &.fas.fa-battery-full {
             margin-right: 0;
-            font-size: 16px;
+            font-size: 14px;
           }
         }
         span {
           margin-right: 8px;
-          font-size: 15px;
+          font-size: 14px;
           font-weight: bold;
         }
       }
     }
     .chatBox {
       height: 55vh;
+      min-height: 700px;
+      padding: 15px 10px;
+      display: flex;
+      flex-direction: column;
+      overflow: auto;
       li {
+        display: flex;
+        &.li_opponent {
+          align-items: flex-end;
+          margin-top: 15px;
+          .opponent_container {
+            display: flex;
+            .opponent_profile {
+              img {
+                width: 45px;
+                border-radius: 50%;
+              }
+            }
+            .opponent_info {
+              display: flex;
+              flex-direction: column;
+              margin-left: 10px;
+              .opponent_nickname {
+              }
+              .opponent_message {
+                display: flex;
+                align-items: flex-end;
+              }
+            }
+          }
+          em {
+            margin-right: auto;
+            font-size: 12px;
+            margin-left: 8px;
+          }
+          span.opponent {
+            position: relative;
+            background: white;
+            border-radius: 10px;
+            padding: 12px;
+            padding-right: 15px;
+            padding-left: 15px;
+          }
+          span.opponent::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 0;
+            height: 0;
+            border: 20px solid transparent;
+            border-left-color: white;
+            border-right: 0;
+            border-top: 0;
+            margin-top: -17px;
+            margin-left: -1px;
+            transform: rotate(-25deg);
+          }
+        }
+        &.li_me {
+          align-items: flex-end;
+          margin-top: 10px;
+          em {
+            margin-left: auto;
+            font-size: 12px;
+            margin-right: 8px;
+          }
+          span.me {
+            position: relative;
+            background: $mainColor;
+            border-radius: 10px;
+            padding: 12px;
+            padding-right: 15px;
+            padding-left: 15px;
+          }
+          span.me::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 0;
+            height: 0;
+            border: 20px solid transparent;
+            border-left-color: $mainColor;
+            border-right: 0;
+            border-top: 0;
+            margin-top: -15px;
+            margin-right: -6px;
+            transform: rotate(-5deg);
+          }
+        }
         span {
-          &.opponent {
-            color: red;
-          }
-          &.me {
-            color: blue;
-          }
+          margin-top: 10px;
         }
       }
     }
