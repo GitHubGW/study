@@ -19,6 +19,12 @@ export const handleGetDate = () => {
   chatBox.appendChild(div);
 };
 
+export const handleDeleteMessage = ({ deleteMessageId }) => {
+  console.log("handleDeleteMessage", deleteMessageId);
+  const deleteLi = document.getElementById(deleteMessageId);
+  chatBox.removeChild(deleteLi);
+};
+
 const handleDeleteBtn = (event) => {
   const {
     target: {
@@ -26,10 +32,16 @@ const handleDeleteBtn = (event) => {
     },
   } = event;
 
+  console.log("id", id);
+
+  const opponentMessage = document.querySelector(".opponent_message");
+  console.log("opponentMessage", opponentMessage);
+  // opponentMessage.id = id;
+
   io("/").emit("deleteBtn", { deleteMessageId: id });
 };
 
-const handleGetMessage = ({ message, nickname }) => {
+export const handleGetMessage = ({ message, nickname }) => {
   const lsNickname = localStorage.getItem(NICKNAME);
   const li = document.createElement("li");
 
@@ -65,9 +77,10 @@ const handleGetMessage = ({ message, nickname }) => {
     `;
   }
   chatBox.appendChild(li);
-
-  const deleteBtn = document.querySelector(".deleteBtn");
-  deleteBtn.addEventListener("click", handleDeleteBtn);
+  const deleteBtn = document.querySelectorAll(".deleteBtn");
+  deleteBtn.forEach((deleteBtn) => {
+    deleteBtn.addEventListener("click", handleDeleteBtn);
+  });
 };
 
 const handleChatForm = (event) => {
@@ -103,5 +116,3 @@ if (chatForm) {
     time.innerHTML = `${new Date().getHours() < 10 ? `0${new Date().getHours()}` : new Date().getHours()}:${new Date().getMinutes() < 10 ? `0${new Date().getMinutes()}` : new Date().getMinutes()}`;
   }, 1000);
 }
-
-export default handleGetMessage;

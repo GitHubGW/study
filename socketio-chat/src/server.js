@@ -38,6 +38,6 @@ io.on("connection", (socket) => {
   });
 
   socket.on("deleteBtn", ({ deleteMessageId }) => {
-    socket.emit("deleteMessage", { deleteMessageId });
+    socket.broadcast.emit("deleteMessage", { deleteMessageId });
   });
 });

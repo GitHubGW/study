@@ -1,4 +1,4 @@
-import handleGetMessage, { handleGetDate } from "./chat";
+import { handleGetMessage, handleDeleteMessage, handleGetDate } from "./chat";
 import alertNotification from "./notification";
 
 const body = document.querySelector("body");
@@ -12,6 +12,7 @@ const lsNickname = localStorage.getItem(NICKNAME);
 
 const login = (nickname) => {
   const socket = io("/");
+
   socket.emit("setNickname", { nickname });
 
   socket.on("userJoin", ({ nickname }) => {
@@ -27,6 +28,7 @@ const login = (nickname) => {
   });
 
   socket.on("getMessage", handleGetMessage);
+  socket.on("deleteMessage", handleDeleteMessage);
 };
 
 const handleFormSubmit = (event) => {
