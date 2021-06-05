@@ -10,3 +10,12 @@ const alertNotification = (text) => {
 };
 
 export default alertNotification;
+
+// setInterval(() => {
+//   const hours = new Date().getHours();
+//   const minutes = new Date().getMinutes();
+
+//   console.log(hours, minutes);
+
+//   return `${hours}:${minutes}`;
+// }, 1000);

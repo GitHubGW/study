@@ -45,10 +45,14 @@ const handleKeyUp = (event) => {
   const button = form.querySelector("button");
   const { value } = input;
   if (value.length >= 1) {
-    button.style.color = "#707070";
+    button.style.backgroundColor = "#3B1C1C";
+    button.style.color = "white";
+    button.style.borderColor = "#3B1C1C";
     form.addEventListener("submit", handleFormSubmit);
   } else {
+    button.style.backgroundColor = "#f6f6f6";
     button.style.color = "#D3D3D3";
+    button.style.borderColor = "#f6f6f6";
     form.removeEventListener("submit", handleFormSubmit);
   }
 };

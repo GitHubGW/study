@@ -36,4 +36,8 @@ io.on("connection", (socket) => {
   socket.on("sendMessage", ({ message, nickname }) => {
     socket.broadcast.emit("getMessage", { message, nickname });
   });
+
+  socket.on("deleteBtn", ({ deleteMessageId }) => {
+    socket.emit("deleteMessage", { deleteMessageId });
+  });
 });
