@@ -1,4 +1,4 @@
-import { handleGetMessage, handleDeleteMessage, handleGetDate } from "./chat";
+import { handleGetMessage, handleDeleteMessage, handleGetDate, handleGetId } from "./chat";
 import alertNotification from "./notification";
 
 const body = document.querySelector("body");

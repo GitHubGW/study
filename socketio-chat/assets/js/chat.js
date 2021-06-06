@@ -20,23 +20,59 @@ export const handleGetDate = () => {
 };
 
 export const handleDeleteMessage = ({ deleteMessageId }) => {
-  console.log("handleDeleteMessage", deleteMessageId);
+  // console.log("handleDeleteMessage", deleteMessageId);
+
   const deleteLi = document.getElementById(deleteMessageId);
-  chatBox.removeChild(deleteLi);
+  const deleteLi2 = document.getElementById(Number(deleteMessageId) + 1);
+  const deleteLi3 = document.getElementById(Number(deleteMessageId) - 1);
+  const deleteLi4 = document.getElementById(Number(deleteMessageId) + 2);
+  const deleteLi5 = document.getElementById(Number(deleteMessageId) - 2);
+  const deleteLi6 = document.getElementById(Number(deleteMessageId) + 3);
+  const deleteLi7 = document.getElementById(Number(deleteMessageId) - 3);
+
+  console.log(deleteLi, deleteLi2, deleteLi3, deleteLi4, deleteLi5);
+
+  if (deleteLi) {
+    const deleteSpan = deleteLi.querySelector("span");
+    deleteSpan.innerHTML = `<i class="fas fa-exclamation-circle"></i> 삭제된 메세지입니다.`;
+    deleteSpan.style.color = "#A9A9A9";
+  } else if (deleteLi2) {
+    const deleteSpan2 = deleteLi2.querySelector("span");
+    deleteSpan2.innerHTML = `<i class="fas fa-exclamation-circle"></i> 삭제된 메세지입니다.`;
+    deleteSpan2.style.color = "#A9A9A9";
+  } else if (deleteLi3) {
+    const deleteSpan3 = deleteLi3.querySelector("span");
+    deleteSpan3.innerHTML = `<i class="fas fa-exclamation-circle"></i> 삭제된 메세지입니다.`;
+    deleteSpan3.style.color = "#A9A9A9";
+  } else if (deleteLi4) {
+    const deleteSpan4 = deleteLi4.querySelector("span");
+    deleteSpan4.innerHTML = `<i class="fas fa-exclamation-circle"></i> 삭제된 메세지입니다.`;
+    deleteSpan4.style.color = "#A9A9A9";
+  } else if (deleteLi5) {
+    const deleteSpan5 = deleteLi5.querySelector("span");
+    deleteSpan5.innerHTML = `<i class="fas fa-exclamation-circle"></i> 삭제된 메세지입니다.`;
+    deleteSpan5.style.color = "#A9A9A9";
+  } else if (deleteLi6) {
+    const deleteSpan6 = deleteLi6.querySelector("span");
+    deleteSpan6.innerHTML = `<i class="fas fa-exclamation-circle"></i> 삭제된 메세지입니다.`;
+    deleteSpan6.style.color = "#A9A9A9";
+  } else if (deleteLi7) {
+    const deleteSpan7 = deleteLi7.querySelector("span");
+    deleteSpan7.innerHTML = `<i class="fas fa-exclamation-circle"></i> 삭제된 메세지입니다.`;
+    deleteSpan7.style.color = "#A9A9A9";
+  }
+
+  // chatBox.removeChild(deleteLi);
 };
 
 const handleDeleteBtn = (event) => {
   const {
     target: {
-      parentNode: { id },
+      parentNode: {
+        parentNode: { id },
+      },
     },
   } = event;
-
-  console.log("id", id);
-
-  const opponentMessage = document.querySelector(".opponent_message");
-  console.log("opponentMessage", opponentMessage);
-  // opponentMessage.id = id;
 
   io("/").emit("deleteBtn", { deleteMessageId: id });
 };
@@ -47,6 +83,7 @@ export const handleGetMessage = ({ message, nickname }) => {
 
   if (lsNickname !== nickname) {
     li.className = "li_opponent";
+    li.id = new Date().getTime();
     li.innerHTML = `
       <div class="opponent_container">
         <div class="opponent_profile">
@@ -73,12 +110,12 @@ export const handleGetMessage = ({ message, nickname }) => {
         ${new Date().getHours() < 10 ? `0${new Date().getHours()}` : new Date().getHours()}:${new Date().getMinutes() < 10 ? `0${new Date().getMinutes()}` : new Date().getMinutes()}
       </em>
       <span class="writer me">${message}</span>
-      <button class="deleteBtn">Delete</button>
+      <button class="deleteBtn"><i class="fas fa-times-circle"></i></button>
     `;
   }
   chatBox.appendChild(li);
-  const deleteBtn = document.querySelectorAll(".deleteBtn");
-  deleteBtn.forEach((deleteBtn) => {
+  const allDeleteBtn = document.querySelectorAll(".deleteBtn");
+  allDeleteBtn.forEach((deleteBtn) => {
     deleteBtn.addEventListener("click", handleDeleteBtn);
   });
 };

@@ -121,6 +121,7 @@
         &.li_me {
           align-items: flex-end;
           margin-top: 10px;
+          position: relative;
           em {
             margin-left: auto;
             font-size: 12px;
@@ -148,6 +149,19 @@
             margin-top: -15px;
             margin-right: -6px;
             transform: rotate(-5deg);
+          }
+          .deleteBtn {
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 12px;
+            right: 2px;
+            i {
+              color: #505050;
+            }
           }
         }
         span {
