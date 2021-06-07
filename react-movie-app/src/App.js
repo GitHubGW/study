@@ -1,5 +1,14 @@
+// import { HashRouter, BrowserRouter, Route } from "react-router-dom";
+
+import Navigation from "./components/Navigation";
+
 const App = () => {
-  return <h1>App</h1>;
+  return (
+    <Navigation></Navigation>
+    // <HashRouter>
+    //   <Route>a</Route>
+    // </HashRouter>
+  );
 };
 
 export default App;
