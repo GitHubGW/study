@@ -13,7 +13,7 @@ const Movie = ({ id, rating, summary, title, year, poster, genres }) => {
         <h3>{title}</h3>
         <h4>{summary}</h4>
         <h5>{year}</h5>
-        <h5>{`${genres}`}</h5>
+        <h5>{genres.join(",")}</h5>
         <h5>{rating}</h5>
       </div>
     </Link>

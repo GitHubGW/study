@@ -21,7 +21,7 @@ const MovieDetail = (props) => {
         <h1>poster: {poster}</h1>
         <h1>year: {year}</h1>
         <h1>rating: {rating}</h1>
-        <h1>genres: {`${genres}`}</h1>
+        <h1>genres: {genres.join(",")}</h1>
       </div>
     );
   } else {
