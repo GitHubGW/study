@@ -26,8 +26,7 @@ class Home extends React.Component {
 
   render() {
     const { isLoading, movies } = this.state;
-
-    console.log(movies);
+    // console.log(movies);
 
     return (
       <>
@@ -42,11 +41,11 @@ class Home extends React.Component {
                     key={movie.id}
                     id={movie.id}
                     rating={movie.rating}
-                    summary={movie.summary}
+                    summary={movie.summary.slice(0, 50)}
                     title={movie.title}
                     year={movie.year}
-                    poster={movies.medium_cover_image}
-                    genres={movies.genres}
+                    poster={movie.medium_cover_image}
+                    genres={movie.genres}
                   />
                 );
               })}
@@ -54,6 +53,9 @@ class Home extends React.Component {
           )}
         </h2>
         <h1>Home</h1>
+        <footer>
+          <h1>{new Date().getFullYear()} Movie.</h1>
+        </footer>
       </>
     );
   }
