@@ -19,17 +19,23 @@ const ScLink = styled(Link)`
   font-size: 20px;
 `;
 
-export default withRouter(() => {
+export default withRouter((props) => {
+  // console.log("props", props);
+
+  const {
+    location: { pathname },
+  } = props;
+
   return (
     <Header>
       <Ul>
-        <Li current={true}>
+        <Li current={pathname === "/" && true}>
           <ScLink to="/">Movies</ScLink>
         </Li>
-        <Li>
+        <Li current={pathname === "/tv" && true}>
           <ScLink to="/tv">TV</ScLink>
         </Li>
-        <Li current={false}>
+        <Li current={pathname === "/search" && true}>
           <ScLink to="/search">Search</ScLink>
         </Li>
       </Ul>
