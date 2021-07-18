@@ -12,7 +12,7 @@ TVPresenter.propTypes = {
   popular: PropTypes.array,
   airingToday: PropTypes.array,
   error: PropTypes.string,
-  loading: PropTypes.bool,
+  loading: PropTypes.bool.isRequired,
 };
 
 export default TVPresenter;
