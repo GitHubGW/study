@@ -1,10 +1,15 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import Section from "Components/Section";
+
+const Container = styled.div``;
 
 const HomePresenter = ({ nowPlaying, upcoming, popular, error, loading }) => {
-  console.log(nowPlaying, upcoming, popular, error, loading);
-
-  return "HomePresenter";
+  return loading ? null : (
+    <Container>
+      <Section></Section>
+    </Container>
+  );
 };
 
 HomePresenter.propTypes = {
