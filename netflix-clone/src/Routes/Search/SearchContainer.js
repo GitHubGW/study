@@ -15,7 +15,16 @@ class SearchContainer extends React.Component {
   //   this.handleSubmit();
   // }
 
-  handleSubmit() {
+  updateTerm(event) {
+    console.log(event.target.value);
+
+    this.setState({
+      searchTerm: event.target.value,
+    });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
     const { searchTerm } = this.state;
 
     if (searchTerm !== "") {
@@ -57,7 +66,17 @@ class SearchContainer extends React.Component {
     const { movieResult, tvResult, searchTerm, error, loading } = this.state;
     // console.log(this.state);
 
-    return <SearchPresenter movieResult={movieResult} tvResult={tvResult} searchTerm={searchTerm} error={error} loading={loading} handleSubmit={this.handleSubmit}></SearchPresenter>;
+    return (
+      <SearchPresenter
+        movieResult={movieResult}
+        tvResult={tvResult}
+        searchTerm={searchTerm}
+        error={error}
+        loading={loading}
+        handleSubmit={this.handleSubmit}
+        updateTerm={this.updateTerm}
+      ></SearchPresenter>
+    );
   }
 }
 

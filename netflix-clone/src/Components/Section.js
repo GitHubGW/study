@@ -11,7 +11,8 @@ const Title = styled.span`
 `;
 
 const Children = styled.div`
-  display: block;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Section = ({ title, children }) => {
