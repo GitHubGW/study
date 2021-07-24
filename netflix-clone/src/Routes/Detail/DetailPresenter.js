@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const DetailPresenter = ({ result, error, loading }) => {
-  console.log(result, error, loading);
+  // console.log(result, error, loading);
 
   return "DetailPresenter";
 };
