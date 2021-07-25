@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import Section from "Components/Section";
 import Loader from "Components/Loader";
+import Message from "Components/Message";
+import Poster from "Components/Poster";
 
 const Container = styled.div``;
 
@@ -14,7 +16,7 @@ const Input = styled.input`
 `;
 
 const SearchPresenter = ({ movieResult, tvResult, searchTerm, error, loading, handleSubmit, updateTerm }) => {
-  console.log(movieResult, tvResult, searchTerm, error, loading, handleSubmit, updateTerm);
+  // console.log(movieResult, tvResult, searchTerm, error, loading, handleSubmit, updateTerm);
 
   return (
     <Container>
@@ -28,19 +30,37 @@ const SearchPresenter = ({ movieResult, tvResult, searchTerm, error, loading, ha
           {movieResult && movieResult.length > 0 && (
             <Section title="Movies Result">
               {movieResult.map((movie) => (
-                <span key={movie.id}>{movie.title}</span>
+                <Poster
+                  key={movie.id}
+                  id={movie.id}
+                  imageUrl={movie.poster_path}
+                  title={movie.title}
+                  rating={movie.vote_average}
+                  year={movie.release_date && movie.release_date.substring(0, 4)}
+                  isMovie={true}
+                ></Poster>
               ))}
             </Section>
           )}
           {tvResult && tvResult.length > 0 && (
             <Section title="TV Result">
               {tvResult.map((tv) => (
-                <span key={tv.id}>{tv.name}</span>
+                <Poster
+                  key={tv.id}
+                  id={tv.id}
+                  imageUrl={tv.poster_path}
+                  title={tv.name}
+                  rating={tv.vote_average}
+                  year={tv.first_air_date && tv.first_air_date.substring(0, 4)}
+                  isMovie={false}
+                ></Poster>
               ))}
             </Section>
           )}
         </>
       )}
+      {error && <Message text={error}></Message>}
+      {movieResult && tvResult && movieResult.length === 0 && tvResult.length === 0 && <Message text="Nothing Found"></Message>}
     </Container>
   );
 };
