@@ -1,12 +1,16 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import noPoster from "../assets/noPoster.png";
 
 const Container = styled.div``;
 
 const PosterContainer = styled.div``;
 
-const Image = styled.div``;
+const Image = styled.div`
+  background: url(${(props) => props.imageUrl}) no-repeat center center;
+  height: 200px;
+`;
 
 const Rating = styled.div``;
 
@@ -19,11 +23,9 @@ const Poster = ({ id, imageUrl, title, rating, year, isMovie }) => {
     <Link to={isMovie ? `/movie/${id}` : `/tv/${id}`}>
       <Container>
         <PosterContainer>
-          <Image imageUrl={imageUrl}></Image>
+          <Image imageUrl={imageUrl ? `https://image.tmdb.org/t/p/w300${imageUrl}` : noPoster}></Image>
           <Rating rating={rating}>⭐{rating}</Rating>
-          <Title>
-            {title.length > 15 ? `${title.substring(0, 15)}...` : title}
-          </Title>
+          <Title>{title.length > 15 ? `${title.substring(0, 15)}...` : title}</Title>
           <Year>{year}</Year>
         </PosterContainer>
       </Container>
