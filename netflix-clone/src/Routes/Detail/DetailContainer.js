@@ -65,7 +65,7 @@ class DetailContainer extends React.Component {
     // console.log(this.props);
 
     const { result, error, loading } = this.state;
-    console.log(this.state);
+    // console.log(this.state);
 
     return <DetailPresenter result={result} error={error} loading={loading}></DetailPresenter>;
   }
