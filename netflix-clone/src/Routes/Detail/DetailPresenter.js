@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import Helmet from "react-helmet";
 import Loader from "Components/Loader";
 import Message from "Components/Message";
 import noPoster from "../../assets/noPoster.png";
@@ -67,19 +68,22 @@ const DetailPresenter = ({ result, error, loading }) => {
     <Loader></Loader>
   ) : (
     <Container>
+      <Helmet>
+        <title>Netflix - {result.title ? result.title : result.name}</title>
+      </Helmet>
       <BlurImage
         imageUrl={
           result.backdrop_path
             ? `https://image.tmdb.org/t/p/original${result.backdrop_path}`
-            : noPoster
+            : `https://image.tmdb.org/t/p/original${result.poster_path}`
         }
       ></BlurImage>
       <Content>
         <Cover
           imageUrl={
-            result.backdrop_path
+            result.poster_path
               ? `https://image.tmdb.org/t/p/original${result.poster_path}`
-              : noPoster
+              : `https://image.tmdb.org/t/p/original${result.backdrop_path}`
           }
         ></Cover>
         <Data>

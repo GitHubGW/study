@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import Helmet from "react-helmet";
 import Section from "Components/Section";
 import Loader from "Components/Loader";
 import Message from "Components/Message";
@@ -15,13 +16,29 @@ const Input = styled.input`
   font-size: 25px;
 `;
 
-const SearchPresenter = ({ movieResult, tvResult, searchTerm, error, loading, handleSubmit, updateTerm }) => {
+const SearchPresenter = ({
+  movieResult,
+  tvResult,
+  searchTerm,
+  error,
+  loading,
+  handleSubmit,
+  updateTerm,
+}) => {
   // console.log(movieResult, tvResult, searchTerm, error, loading, handleSubmit, updateTerm);
 
   return (
     <Container>
+      <Helmet>
+        <title>Netflix - Search</title>
+      </Helmet>
+
       <Form onSubmit={handleSubmit}>
-        <Input placeholder="Search Movies or TV" value={searchTerm} onChange={updateTerm}></Input>
+        <Input
+          placeholder="Search Movies or TV"
+          value={searchTerm}
+          onChange={updateTerm}
+        ></Input>
       </Form>
       {loading ? (
         <Loader></Loader>
@@ -36,7 +53,9 @@ const SearchPresenter = ({ movieResult, tvResult, searchTerm, error, loading, ha
                   imageUrl={movie.poster_path}
                   title={movie.title}
                   rating={movie.vote_average}
-                  year={movie.release_date && movie.release_date.substring(0, 4)}
+                  year={
+                    movie.release_date && movie.release_date.substring(0, 4)
+                  }
                   isMovie={true}
                 ></Poster>
               ))}
@@ -60,7 +79,10 @@ const SearchPresenter = ({ movieResult, tvResult, searchTerm, error, loading, ha
         </>
       )}
       {error && <Message text={error}></Message>}
-      {movieResult && tvResult && movieResult.length === 0 && tvResult.length === 0 && <Message text="Nothing Found"></Message>}
+      {movieResult &&
+        tvResult &&
+        movieResult.length === 0 &&
+        tvResult.length === 0 && <Message text="Nothing Found"></Message>}
     </Container>
   );
 };
