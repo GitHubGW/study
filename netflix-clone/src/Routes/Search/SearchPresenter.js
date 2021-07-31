@@ -16,15 +16,7 @@ const Input = styled.input`
   font-size: 25px;
 `;
 
-const SearchPresenter = ({
-  movieResult,
-  tvResult,
-  searchTerm,
-  error,
-  loading,
-  handleSubmit,
-  updateTerm,
-}) => {
+const SearchPresenter = ({ movieResult, tvResult, searchTerm, error, loading, handleSubmit, updateTerm }) => {
   // console.log(movieResult, tvResult, searchTerm, error, loading, handleSubmit, updateTerm);
 
   return (
@@ -34,11 +26,7 @@ const SearchPresenter = ({
       </Helmet>
 
       <Form onSubmit={handleSubmit}>
-        <Input
-          placeholder="Search Movies or TV"
-          value={searchTerm}
-          onChange={updateTerm}
-        ></Input>
+        <Input placeholder="Search Movies or TV" value={searchTerm} onChange={updateTerm}></Input>
       </Form>
       {loading ? (
         <Loader></Loader>
@@ -53,9 +41,7 @@ const SearchPresenter = ({
                   imageUrl={movie.poster_path}
                   title={movie.title}
                   rating={movie.vote_average}
-                  year={
-                    movie.release_date && movie.release_date.substring(0, 4)
-                  }
+                  year={movie.release_date && movie.release_date.substring(0, 4)}
                   isMovie={true}
                 ></Poster>
               ))}
@@ -79,10 +65,7 @@ const SearchPresenter = ({
         </>
       )}
       {error && <Message text={error}></Message>}
-      {movieResult &&
-        tvResult &&
-        movieResult.length === 0 &&
-        tvResult.length === 0 && <Message text="Nothing Found"></Message>}
+      {movieResult && tvResult && movieResult.length === 0 && tvResult.length === 0 && <Message text="Nothing Found"></Message>}
     </Container>
   );
 };
