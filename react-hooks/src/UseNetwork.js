@@ -3,17 +3,17 @@ import { useState, useEffect } from "react";
 const useNetwork = (isOnline) => {
   const [status, setStatus] = useState(isOnline);
 
-  const handleUseEffect = () => {
-    const handleOnOffline = () => {
-      if (navigator.onLine === true) {
-        console.log("Online");
-        setStatus(navigator.onLine);
-      } else if (navigator.onLine === false) {
-        console.log("Offline");
-        setStatus(navigator.onLine);
-      }
-    };
+  const handleOnOffline = () => {
+    if (navigator.onLine === true) {
+      console.log("Online");
+      setStatus(navigator.onLine);
+    } else if (navigator.onLine === false) {
+      console.log("Offline");
+      setStatus(navigator.onLine);
+    }
+  };
 
+  const handleUseEffect = () => {
     window.addEventListener("online", handleOnOffline);
     window.addEventListener("offline", handleOnOffline);
 
