@@ -1177,6 +1177,41 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@gitgw/use-before-leave@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@gitgw/use-before-leave/-/use-before-leave-1.0.5.tgz#86f155626a3232948692a869575d541ae432803e"
+  integrity sha512-/7A2GCNl5crkdtr2cAGb/6710iKD1VCIQr/x39W2PeRWylGKYFY4u0wvc96kSv88azMjATljlC5bHx94RRvLWw==
+
+"@gitgw/use-confirm@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@gitgw/use-confirm/-/use-confirm-1.0.5.tgz#9febd5a43a7e9c3fab6501486d8f8d593c938255"
+  integrity sha512-VISVsPOhTonK0ir/HYFIsXWKrdYpdo4hyim6jDO2THz6m80Ht+CuYH0MDYeYgw2lWkgUc2EoLHVmvrFobMSmUQ==
+
+"@gitgw/use-hover@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@gitgw/use-hover/-/use-hover-1.0.2.tgz#ab71a0f3a513b62770f9bf9ad58420a823bc9dd9"
+  integrity sha512-q9rlcB/oVv5D+I3ppcrlmxLANfosJ4egl87Z4h1QVbOeuJB4wA7rwRGEylSMu5XZ3u5fgsXRhazN/gcyr4keng==
+
+"@gitgw/use-network@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@gitgw/use-network/-/use-network-1.0.1.tgz#ae2f0e746b7607360c17037dcebbcc9a9492f186"
+  integrity sha512-fDJkVIPXsrfP/3KMVbiabS+b6uYmIbhNbLgyY3wTK1AnXL8niRwZGDGh6zpv0UnZmeTpv7HqSjEGsTAmJpFsfg==
+
+"@gitgw/use-prevent-leave@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@gitgw/use-prevent-leave/-/use-prevent-leave-1.0.1.tgz#b79b2e7bd701967d3bed1b05112186ad4830c6f1"
+  integrity sha512-B9Numn3XgjUpaqj0E1W6MitjigCApkoZDJTlVv4ru40ZvtWSW8603fq7asZ8B9SqmUF3kELVMCCl0DTmlIaJkg==
+
+"@gitgw/use-scroll@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@gitgw/use-scroll/-/use-scroll-1.0.1.tgz#3170bed9d4e850b1cfc75c0797d3a95fe0592825"
+  integrity sha512-9qFuWfU7zBj7qh+HMfnZdnBQr7jk++uWB4nrAMfn1VeYk2EaagoBg3N3/oWcKvIeARzwGmdyVuMbcySEb9ovnw==
+
+"@gitgw/use-title@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@gitgw/use-title/-/use-title-1.1.0.tgz#a53d45d955bb6243b4681b9ea3af4c0cfb65875b"
+  integrity sha512-5v6Eoo4raXwAQsALcOoHCVw7CZrPF1tC7RBGuPk0vffIHdeTB8y0ok+jexZg1yqceFNWloAwg4y2d8DXgpz9/Q==
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"

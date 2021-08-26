@@ -3,6 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@gitgw/use-before-leave": "^1.0.5",
+    "@gitgw/use-confirm": "^1.0.5",
+    "@gitgw/use-hover": "^1.0.2",
+    "@gitgw/use-network": "^1.0.1",
+    "@gitgw/use-prevent-leave": "^1.0.1",
+    "@gitgw/use-scroll": "^1.0.1",
+    "@gitgw/use-title": "^1.1.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
