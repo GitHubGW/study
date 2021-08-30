@@ -4,9 +4,66 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="style.css" />
-    <title>JS - Painting Board</title>
+    <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <!-- 캔버스 태그 -->
+      <canvas id="jsCanvas" class="canvas"></canvas>
+      <!-- 컨트롤 -->
+      <div class="controls">
+        <!-- 브러시 사이즈 조절 -->
+        <input type="range" name="input-range" id="jsInputRange" class="input_range" min="1" max="10" value="5" step="0.1" />
+        <!-- 버튼 -->
+        <div class="control__button-list">
+          <button id="jsPaint">그리기</button>
+          <button id="jsFill">채우기</button>
+          <button id="jsSave">저장</button>
+        </div>
+        <!-- 색상 -->
+        <div id="jsColor" class="control__color-list">
+          <div class="control__color" style="background-color: black"></div>
+          <div class="control__color" style="background-color: white"></div>
+          <div class="control__color" style="background-color: red"></div>
+          <div class="control__color" style="background-color: orange"></div>
+          <div class="control__color" style="background-color: yellow"></div>
+          <div class="control__color" style="background-color: green"></div>
+          <div class="control__color" style="background-color: blue"></div>
+          <div class="control__color" style="background-color: darkblue"></div>
+          <div class="control__color" style="background-color: purple"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let checkPainting = false;
+      const canvas = document.getElementById("jsCanvas");
+
+      const handleMouseMove = (event) => {
+        const { offsetX, offsetY } = event;
+      };
+
+      const handleMouseLeave = (event) => {
+        const { offsetX, offsetY } = event;
+        checkPainting = false;
+      };
+
+      const handleMouseDown = (event) => {
+        const { offsetX, offsetY } = event;
+        checkPainting = true;
+      };
+
+      const handleMouseUp = (event) => {
+        const { offsetX, offsetY } = event;
+        checkPainting = false;
+      };
+
+      if (canvas) {
+        canvas.addEventListener("mousemove", handleMouseMove);
+        canvas.addEventListener("mouseleave", handleMouseLeave);
+        canvas.addEventListener("mousedown", handleMouseDown);
+        canvas.addEventListener("mouseup", handleMouseUp);
+      }
+    </script>
+  </body>
 </html>
