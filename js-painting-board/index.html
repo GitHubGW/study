@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <title>그림판</title>
   </head>
   <body>
     <div class="container">
@@ -38,9 +39,24 @@
     <script>
       let checkPainting = false;
       const canvas = document.getElementById("jsCanvas");
+      const ctx = canvas.getContext("2d");
+
+      canvas.width = 1200;
+      canvas.height = 1000;
+
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = "1";
 
       const handleMouseMove = (event) => {
         const { offsetX, offsetY } = event;
+
+        if (!checkPainting) {
+          ctx.beginPath();
+          ctx.moveTo(offsetX, offsetY);
+        } else {
+          ctx.lineTo(offsetX, offsetY);
+          ctx.stroke();
+        }
       };
 
       const handleMouseLeave = (event) => {
@@ -64,6 +80,23 @@
         canvas.addEventListener("mousedown", handleMouseDown);
         canvas.addEventListener("mouseup", handleMouseUp);
       }
+
+      // Set line width
+      ctx.lineWidth = 10;
+
+      // Wall
+      ctx.strokeRect(75, 140, 150, 110);
+
+      // Door
+      ctx.fillRect(130, 190, 40, 60);
+
+      // Roof
+      ctx.beginPath();
+      ctx.moveTo(50, 140);
+      ctx.lineTo(150, 60);
+      ctx.lineTo(250, 140);
+      ctx.closePath();
+      ctx.stroke();
     </script>
   </body>
 </html>

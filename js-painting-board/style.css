@@ -4,8 +4,8 @@ body {
   justify-content: center;
 }
 canvas {
-  width: 70vw;
-  height: 70vh;
+  width: 1200px;
+  height: 1000px;
   background-color: white;
   border: 2px solid #eee;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
