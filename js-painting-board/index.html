@@ -38,14 +38,19 @@
 
     <script>
       let checkPainting = false;
+
       const canvas = document.getElementById("jsCanvas");
       const ctx = canvas.getContext("2d");
+      const colors = document.querySelectorAll(".control__color");
+      const range = document.getElementById("jsInputRange");
+      const paint = document.getElementById("jsPaint");
+      const fill = document.getElementById("jsFill");
 
       canvas.width = 1200;
       canvas.height = 1000;
 
       ctx.strokeStyle = "black";
-      ctx.lineWidth = "1";
+      ctx.lineWidth = "5";
 
       const handleMouseMove = (event) => {
         const { offsetX, offsetY } = event;
@@ -74,6 +79,26 @@
         checkPainting = false;
       };
 
+      const handleColorClick = (event) => {
+        const {
+          target: {
+            style: { backgroundColor },
+          },
+        } = event;
+        ctx.strokeStyle = backgroundColor;
+      };
+
+      const handleInput = (event) => {
+        const {
+          target: { value },
+        } = event;
+        ctx.lineWidth = value;
+      };
+
+      const handlePaintClick = () => {};
+
+      const handleFillClick = () => {};
+
       if (canvas) {
         canvas.addEventListener("mousemove", handleMouseMove);
         canvas.addEventListener("mouseleave", handleMouseLeave);
@@ -81,22 +106,24 @@
         canvas.addEventListener("mouseup", handleMouseUp);
       }
 
-      // Set line width
-      ctx.lineWidth = 10;
+      if (colors) {
+        const colorArray = Array.from(colors);
+        colorArray.map((color) => {
+          color.addEventListener("click", handleColorClick);
+        });
+      }
 
-      // Wall
-      ctx.strokeRect(75, 140, 150, 110);
+      if (range) {
+        range.addEventListener("input", handleInput);
+      }
 
-      // Door
-      ctx.fillRect(130, 190, 40, 60);
+      if (paint) {
+        paint.addEventListener("click", handlePaintClick);
+      }
 
-      // Roof
-      ctx.beginPath();
-      ctx.moveTo(50, 140);
-      ctx.lineTo(150, 60);
-      ctx.lineTo(250, 140);
-      ctx.closePath();
-      ctx.stroke();
+      if (fill) {
+        fill.addEventListener("click", handleFillClick);
+      }
     </script>
   </body>
 </html>
