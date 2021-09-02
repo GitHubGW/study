@@ -4,126 +4,58 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css" />
     <title>그림판</title>
   </head>
   <body>
     <div class="container">
-      <!-- 캔버스 태그 -->
-      <canvas id="jsCanvas" class="canvas"></canvas>
-      <!-- 컨트롤 -->
       <div class="controls">
-        <!-- 브러시 사이즈 조절 -->
-        <input type="range" name="input-range" id="jsInputRange" class="input_range" min="1" max="10" value="5" step="0.1" />
-        <!-- 버튼 -->
+        <div class="color__container">
+          <div class="control__current-color-list">
+            <div id="jsCurrentColor" class="control__color control__current-color" style="background-color: #000000"></div>
+            <h2>색상</h2>
+          </div>
+
+          <div id="jsColor" class="control__color-list">
+            <div class="control__color" style="background-color: #000000"></div>
+            <div class="control__color" style="background-color: #ffffff"></div>
+            <div class="control__color" style="background-color: #636e72"></div>
+            <div class="control__color" style="background-color: #b2bec3"></div>
+            <div class="control__color" style="background-color: #f3a683"></div>
+            <div class="control__color" style="background-color: #f7d794"></div>
+            <div class="control__color" style="background-color: #778beb"></div>
+            <div class="control__color" style="background-color: #e77f67"></div>
+            <div class="control__color" style="background-color: #cf6a87"></div>
+            <div class="control__color" style="background-color: #bdc581"></div>
+            <div class="control__color" style="background-color: #d63031"></div>
+            <div class="control__color" style="background-color: #ffa801"></div>
+            <div class="control__color" style="background-color: #ffd32a"></div>
+            <div class="control__color" style="background-color: #05c46b"></div>
+            <div class="control__color" style="background-color: #0984e3"></div>
+            <div class="control__color" style="background-color: #3c40c6"></div>
+            <div class="control__color" style="background-color: #00d8d6"></div>
+            <div class="control__color" style="background-color: #cd84f1"></div>
+            <div class="control__color" style="background-color: #fd79a8"></div>
+            <div class="control__color" style="background-color: #fffa65"></div>
+          </div>
+        </div>
+
+        <div class="brush__container">
+          <i class="fas fa-brush"></i>
+          <input type="range" name="input-range" id="jsInputRange" class="input_range" min="1" max="10" value="4" step="0.1" />
+        </div>
+
         <div class="control__button-list">
-          <button id="jsPaint">그리기</button>
+          <button id="jsReset">초기화</button>
           <button id="jsFill">채우기</button>
           <button id="jsSave">저장</button>
         </div>
-        <!-- 색상 -->
-        <div id="jsColor" class="control__color-list">
-          <div class="control__color" style="background-color: black"></div>
-          <div class="control__color" style="background-color: white"></div>
-          <div class="control__color" style="background-color: red"></div>
-          <div class="control__color" style="background-color: orange"></div>
-          <div class="control__color" style="background-color: yellow"></div>
-          <div class="control__color" style="background-color: green"></div>
-          <div class="control__color" style="background-color: blue"></div>
-          <div class="control__color" style="background-color: darkblue"></div>
-          <div class="control__color" style="background-color: purple"></div>
-        </div>
       </div>
+
+      <canvas id="jsCanvas" class="canvas"></canvas>
+      <script src="paint.js"></script>
     </div>
-
-    <script>
-      let checkPainting = false;
-
-      const canvas = document.getElementById("jsCanvas");
-      const ctx = canvas.getContext("2d");
-      const colors = document.querySelectorAll(".control__color");
-      const range = document.getElementById("jsInputRange");
-      const paint = document.getElementById("jsPaint");
-      const fill = document.getElementById("jsFill");
-
-      canvas.width = 1200;
-      canvas.height = 1000;
-
-      ctx.strokeStyle = "black";
-      ctx.lineWidth = "5";
-
-      const handleMouseMove = (event) => {
-        const { offsetX, offsetY } = event;
-
-        if (!checkPainting) {
-          ctx.beginPath();
-          ctx.moveTo(offsetX, offsetY);
-        } else {
-          ctx.lineTo(offsetX, offsetY);
-          ctx.stroke();
-        }
-      };
-
-      const handleMouseLeave = (event) => {
-        const { offsetX, offsetY } = event;
-        checkPainting = false;
-      };
-
-      const handleMouseDown = (event) => {
-        const { offsetX, offsetY } = event;
-        checkPainting = true;
-      };
-
-      const handleMouseUp = (event) => {
-        const { offsetX, offsetY } = event;
-        checkPainting = false;
-      };
-
-      const handleColorClick = (event) => {
-        const {
-          target: {
-            style: { backgroundColor },
-          },
-        } = event;
-        ctx.strokeStyle = backgroundColor;
-      };
-
-      const handleInput = (event) => {
-        const {
-          target: { value },
-        } = event;
-        ctx.lineWidth = value;
-      };
-
-      const handlePaintClick = () => {};
-
-      const handleFillClick = () => {};
-
-      if (canvas) {
-        canvas.addEventListener("mousemove", handleMouseMove);
-        canvas.addEventListener("mouseleave", handleMouseLeave);
-        canvas.addEventListener("mousedown", handleMouseDown);
-        canvas.addEventListener("mouseup", handleMouseUp);
-      }
-
-      if (colors) {
-        const colorArray = Array.from(colors);
-        colorArray.map((color) => {
-          color.addEventListener("click", handleColorClick);
-        });
-      }
-
-      if (range) {
-        range.addEventListener("input", handleInput);
-      }
-
-      if (paint) {
-        paint.addEventListener("click", handlePaintClick);
-      }
-
-      if (fill) {
-        fill.addEventListener("click", handleFillClick);
-      }
-    </script>
   </body>
 </html>
