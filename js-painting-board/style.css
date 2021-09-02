@@ -1,54 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+
 body {
+  margin: 0;
+  padding: 0;
   background-color: #f6f9fc;
   display: flex;
   justify-content: center;
+  font-family: "Jua", sans-serif;
+}
+.container {
+  display: flex;
+  margin-top: 90px;
 }
 canvas {
   width: 1200px;
-  height: 1000px;
+  height: 1100px;
   background-color: white;
   border: 2px solid #eee;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-  margin-top: 40px;
   border-radius: 20px;
 }
 .controls {
-  height: 90px;
-  margin-top: 80px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 18px;
+  transform: translateY(-60%);
+  width: 90px;
 }
-.input_range {
-  border: 3px solid red;
-  width: 12%;
-}
-.control__button-list {
+
+.color__container {
   display: flex;
+  flex-direction: column;
+}
+.control__current-color-list {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 20px 0;
+  margin-bottom: 15px;
 }
-.control__button-list button {
-  font-size: 16px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  margin: 0 10px;
-  padding: 12px 30px;
-  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+.control__current-color-list h2 {
+  margin: 0;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 10px;
+}
+.control__color.control__current-color {
+  width: 50px;
+  height: 50px;
 }
 .control__color-list {
   display: flex;
   justify-content: center;
+  width: 100px;
+  flex-wrap: wrap;
 }
 .control__color {
-  width: 45px;
-  height: 45px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   border: 1px solid #eee;
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-  margin: 0 3px;
+  margin: 1px;
+}
+
+.brush__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+}
+.brush__container .fas {
+  font-size: 25px;
+  color: black;
+  margin-bottom: 5px;
+}
+.brush__container .input_range {
+  width: 90%;
+}
+
+.control__button-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+}
+.control__button-list button {
+  font-size: 15px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin: 0 10px;
+  margin-bottom: 10px;
+  padding: 12px 0px;
+  width: 90px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  font-family: "Jua", sans-serif;
 }
