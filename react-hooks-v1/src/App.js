@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import UseInput from "./UseInput";
 import UseTabs from "./UseTabs";
+import UseTitle from "./UseTitle";
+import UseClick from "./UseClick";
 
 const App = () => {
   return (
     <>
-      <UseInput></UseInput>
-      <UseTabs></UseTabs>
+      <UseInput />
+      <UseTabs />
+      <UseTitle />
+      <UseClick />
     </>
   );
 };
