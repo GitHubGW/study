@@ -1,7 +1,9 @@
 ### React Hooks
 
-- UseInput: input에 입력 가능한 글자를 10자 미만으로 제한하고, 특수기호 @를 포함시키지 않도록 제한하는 훅
+- UseInput: input 태그에 입력 가능한 글자수를 제한하고, 특수기호 @를 포함시키지 않도록 제한하는 훅
 - UseTabs: 버튼을 클릭했을 때, 버튼에 해당되는 배열의 탭을 불러오는 훅
+- UseTitle: title 태그가 가지고 있는 텍스트를 바꾸는 훅
+- UseClick: 버튼을 클릭했을 때 버튼의 텍스트 색깔을 바꾸는 훅
 
 #### Class Component vs Functional Component
 
