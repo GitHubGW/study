@@ -1,12 +1,9 @@
-const dog = {
-  name: "bulldog",
-  age: 5,
-  gender: "male",
-};
+import dogArray, { getById } from "./db";
 
 const resolvers = {
   Query: {
-    animal: () => dog,
+    animal: () => dogArray,
+    oneDog: (_, { id }) => getById(id),
   },
 };
 
