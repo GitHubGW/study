@@ -18,7 +18,7 @@ const UseTitle = () => {
 
   return (
     <>
-      <h1>UseTitle</h1>
+      <h2>✅ UseTitle</h2>
       <form onSubmit={onSubmit}>
         <input type="text" placeholder="Write title" onChange={onChange} required></input>
         <button onClick={onSubmit}>Save</button>
