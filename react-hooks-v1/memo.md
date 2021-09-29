@@ -4,6 +4,8 @@
 - UseTabs: 버튼을 클릭했을 때, 버튼에 해당되는 배열의 탭을 불러오는 훅
 - UseTitle: title 태그가 가지고 있는 텍스트를 바꾸는 훅
 - UseClick: 버튼을 클릭했을 때 버튼의 텍스트 색깔을 바꾸는 훅
+- UseConfirm: confirm()메서드를 이용해서 확인 또는 취소를 클릭했을 때 true 또는 false를 반환하는 훅
+- UseBeforeLeave: 마우스가 document의 영역에 있거나 벗어나게 되면 감지해서 알려주는 훅
 
 #### Class Component vs Functional Component
 
