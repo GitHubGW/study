@@ -10,7 +10,7 @@ const UseClick = () => {
 
   return (
     <>
-      <h1>UseClick</h1>
+      <h2>✅ UseClick</h2>
       <button ref={element} onClick={onClick}>
         Click Me!
       </button>
