@@ -27,7 +27,7 @@ const UseTabs = () => {
 
   return (
     <>
-      <h1>UseTabs</h1>
+      <h2>✅ UseTabs</h2>
       {sectionArray.map((section, index) => {
         return (
           <button key={index} onClick={() => handleButton(index)}>
@@ -35,8 +35,9 @@ const UseTabs = () => {
           </button>
         );
       })}
-      <p>{sectionArray[currentSection].content}</p>
-      <p>{sectionArray[currentSection].rating}</p>
+      <h4>
+        {sectionArray[currentSection].content} / {sectionArray[currentSection].rating}
+      </h4>
     </>
   );
 };
