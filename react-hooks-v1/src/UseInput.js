@@ -15,7 +15,7 @@ const UseInput = () => {
 
   return (
     <>
-      <h1>UseInput</h1>
+      <h2>✅ UseInput</h2>
       <form>
         <input type="text" placeholder="Write your Name" value={value} onChange={onChange}></input>
       </form>
