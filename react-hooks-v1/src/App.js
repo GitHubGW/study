@@ -6,6 +6,8 @@ import UseClick from "./UseClick";
 import UseConfirm from "./UseConfirm";
 import UsePreventLeave from "./UsePreventLeave";
 import UseBeforeLeave from "./UseBeforeLeave";
+import UseFadeIn from "./UseFadeIn";
+import UseNetwork from "./UseNetwork";
 
 const App = () => {
   return (
@@ -17,6 +19,8 @@ const App = () => {
       <UseConfirm />
       <UsePreventLeave />
       <UseBeforeLeave />
+      <UseFadeIn />
+      <UseNetwork />
     </>
   );
 };
