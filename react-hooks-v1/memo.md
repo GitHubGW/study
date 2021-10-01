@@ -6,6 +6,8 @@
 - UseClick: 버튼을 클릭했을 때 버튼의 텍스트 색깔을 바꾸는 훅
 - UseConfirm: confirm()메서드를 이용해서 확인 또는 취소를 클릭했을 때 true 또는 false를 반환하는 훅
 - UseBeforeLeave: 마우스가 document의 영역에 있거나 벗어나게 되면 감지해서 알려주는 훅
+- UseFadeIn: 버튼을 클릭했을 때 Fade In/Out을 해주는 훅
+- UseNetwork: Navigator.onLine을 통해 현재 온라인인지 오프라인인지 감지해서 알려주는 훅
 
 #### Class Component vs Functional Component
 
