@@ -10,6 +10,7 @@
 - UseNetwork: Navigator.onLine을 통해 현재 온라인인지 오프라인인지 감지해서 알려주는 훅
 - UseScroll: 윈도우에 scroll동작이 일어나게 되면 x축과 y축의 좌표를 가져와서 보여주는 훅
 - UseFullScreen: 버튼을 클릭했을 때 지정한 태그를 풀스크린으로 만드는 훅
+- UseNotification: 버튼을 클릭했을 때 브라우저 알림창을 띄워주는 훅
 
 #### Class Component vs Functional Component
 

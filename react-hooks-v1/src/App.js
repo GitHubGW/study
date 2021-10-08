@@ -10,6 +10,8 @@ import UseFadeIn from "./UseFadeIn";
 import UseNetwork from "./UseNetwork";
 import UseScroll from "./UseScroll";
 import UseFullScreen from "./UseFullScreen";
+import UseNotification from "./UseNotification";
+import UseAxios from "./UseAxios";
 
 const App = () => {
   return (
@@ -25,6 +27,8 @@ const App = () => {
       <UseNetwork />
       <UseScroll />
       <UseFullScreen />
+      <UseNotification />
+      <UseAxios />
     </div>
   );
 };
