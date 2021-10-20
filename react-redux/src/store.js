@@ -1,16 +1,18 @@
-import {createStore} from redux;
+import { createStore } from "redux";
 
-const ADD="ADD";
-const DELETE="DELETE";
+const isDark = JSON.parse(localStorage.getItem("isDark"));
 
-const addToDo=()=>{
+const reducer = (state = isDark ? isDark : false, action) => {
+  switch (action.type) {
+    case true:
+      return true;
+    case false:
+      return false;
+    default:
+      return state;
+  }
+};
 
-}
-
-const deleteToDo=()=>{
-
-}
-
-const store=createStore(reducer);
+const store = createStore(reducer);
 
 export default store;
