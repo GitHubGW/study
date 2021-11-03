@@ -17,20 +17,18 @@ const ScLink = styled(Link)`
 `;
 
 const Header = ({ location: { pathname } }) => {
-  console.log("pathname", pathname);
-
   return (
     <div>
       <h1>Header</h1>
       <Ul>
         <Li pathname={pathname === "/" ? "true" : "false"}>
-          <ScLink to="/">Home</ScLink>
-        </Li>
-        <Li pathname={pathname === "/movie" ? "true" : "false"}>
-          <ScLink to="/movie">Movie</ScLink>
+          <ScLink to="/">Movie</ScLink>
         </Li>
         <Li pathname={pathname === "/tv" ? "true" : "false"}>
           <ScLink to="/tv">TV</ScLink>
+        </Li>
+        <Li pathname={pathname === "/search" ? "true" : "false"}>
+          <ScLink to="/search">Search</ScLink>
         </Li>
       </Ul>
     </div>
