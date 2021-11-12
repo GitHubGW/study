@@ -11,7 +11,8 @@ class SearchContainer extends Component {
     loading: false,
   };
 
-  handleSubmit = async () => {
+  onSubmit = async (event) => {
+    event.preventDefault();
     const { word } = this.state;
     if (word !== "") {
       try {
@@ -25,13 +26,20 @@ class SearchContainer extends Component {
         this.setState({ movieResult, tvResult, loading: true });
       } catch (error) {
         console.log(error);
-        this.setState({ error: "Failed to find movie and tv." });
+        this.setState({ error: "Failed to find movie or tv." });
       }
     }
   };
 
+  onChange = (event) => {
+    const {
+      target: { value },
+    } = event;
+    this.setState({ word: value });
+  };
+
   render() {
-    return <SearchPresenter {...this.state} handleSubmit={this.handleSubmit} />;
+    return <SearchPresenter {...this.state} onSubmit={this.onSubmit} onChange={this.onChange} />;
   }
 }
 
