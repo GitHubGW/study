@@ -1,6 +1,8 @@
 import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
 
+const Container = styled.div``;
+
 const Ul = styled.ul`
   display: flex;
 `;
@@ -18,8 +20,7 @@ const ScLink = styled(Link)`
 
 const Header = ({ location: { pathname } }) => {
   return (
-    <div>
-      <h1>Header</h1>
+    <Container>
       <Ul>
         <Li pathname={pathname === "/" ? "true" : "false"}>
           <ScLink to="/">Movie</ScLink>
@@ -31,7 +32,7 @@ const Header = ({ location: { pathname } }) => {
           <ScLink to="/search">Search</ScLink>
         </Li>
       </Ul>
-    </div>
+    </Container>
   );
 };
 

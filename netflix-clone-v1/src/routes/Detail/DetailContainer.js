@@ -6,7 +6,7 @@ class DetailContainer extends Component {
   state = {
     isMovie: false,
     isTV: false,
-    result: [],
+    result: {},
     error: null,
     loading: true,
   };
