@@ -1,9 +1,16 @@
-type Person {
+type User {
+  id: Int!
   name: String!
   age: Int!
   country: String!
 }
 
 type Query {
-  user: Person!
+  getAllUsers: [User]!
+  getUser(userId:Int!): User
+}
+
+type Mutation{
+  createUser(name:String!, age:Int!, country:String!): Boolean!
+  deleteUser(userId:Int!): Boolean!
 }

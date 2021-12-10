@@ -1,12 +1,14 @@
-const person = {
-  name: "gw",
-  age: 10,
-  country: "kr",
-};
+import { handleCreateUser, handleDeleteUser, handleGetAllUsers, handleGetUser } from "./db";
 
 const resolvers = {
   Query: {
-    user: () => person,
+    getAllUsers: () => handleGetAllUsers(),
+    getUser: (_, { userId }) => handleGetUser(userId),
+  },
+
+  Mutation: {
+    createUser: (_, { name, age, country }) => handleCreateUser(name, age, country),
+    deleteUser: (_, { userId }) => handleDeleteUser(userId),
   },
 };
 
