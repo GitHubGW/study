@@ -1,4 +1,6 @@
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
+import Movie from "../components/Movie";
+import gql from "graphql-tag";
 
 const GET_ALL_MOVIES = gql`
   query {
@@ -21,24 +23,7 @@ const Home = () => {
     <div>
       <h1>Home</h1>
       <h2>{error && error.message}</h2>
-      {loading ? (
-        "Loading"
-      ) : (
-        <div>
-          {data &&
-            data?.getAllMovies?.map((movie) => (
-              <div key={movie.id}>
-                <img src={movie.medium_cover_image} alt={movie.title} />
-                <h3>
-                  {movie.title} ({movie.year})
-                </h3>
-                <h5>
-                  🌠{movie.rating}, {movie.runtime}분
-                </h5>
-              </div>
-            ))}
-        </div>
-      )}
+      {loading ? "Loading" : <div>{data && data?.getAllMovies?.map((movie) => <Movie key={movie.id} movie={movie} />)}</div>}
     </div>
   );
 };
