@@ -12,6 +12,7 @@ const GET_DETAIL_SUGGESTION_MOVIE = gql`
       rating
       runtime
       medium_cover_image
+      isLiked @client
     }
     getSuggestionMovies(movieId: $movieId) {
       id
@@ -21,6 +22,7 @@ const GET_DETAIL_SUGGESTION_MOVIE = gql`
       runtime
       summary
       medium_cover_image
+      isLiked @client
     }
   }
 `;
@@ -28,7 +30,6 @@ const GET_DETAIL_SUGGESTION_MOVIE = gql`
 const Detail = () => {
   const { id } = useParams();
   const { data, loading } = useQuery(GET_DETAIL_SUGGESTION_MOVIE, { variables: { movieId: +id } });
-  console.log("data", data, loading);
 
   return (
     <div>

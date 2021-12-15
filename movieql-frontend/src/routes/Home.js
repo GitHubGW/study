@@ -11,13 +11,13 @@ const GET_ALL_MOVIES = gql`
       rating
       runtime
       medium_cover_image
+      isLiked @client
     }
   }
 `;
 
 const Home = () => {
   const { data, loading, error } = useQuery(GET_ALL_MOVIES);
-  console.log("data", data);
 
   return (
     <div>
