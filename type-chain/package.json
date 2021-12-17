@@ -1,0 +1,19 @@
+{
+  "name": "type-chain",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "tsc",
+    "start": "tsc-watch --onSuccess 'node ./dist/index.js'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.5.4"
+  },
+  "devDependencies": {
+    "tsc-watch": "^4.5.0"
+  }
+}
