@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <span id="counter-number">Total clicks: 0</span>
+    <button id="btn">click</button>
+
+    <script>
+      let counter = 0;
+      const btn = document.querySelector("#btn");
+      const counterNumber = document.querySelector("#counter-number");
+
+      const handleClick = () => {
+        console.log("handleClick", counter);
+        counter = counter + 1;
+        counterNumber.innerText = `Total clicks: ${counter}`;
+      };
+
+      btn.addEventListener("click", handleClick);
+    </script>
+  </body>
+</html>
