@@ -11,13 +11,37 @@
 
     <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <script>
+    <script type="text/babel">
+      /*
       const h1 = React.createElement("h1", { key: "h1", id: "h1", onMouseEnter: () => console.log("onMouseEnter!") }, "Hello");
       const button = React.createElement("button", { key: "button", id: "button", onClick: () => console.log("onClick!") }, "Click");
       const div = React.createElement("div", { key: "div" }, [h1, button]);
+      */
 
-      ReactDOM.render(div, document.getElementById("root"));
+      const Title = () => (
+        <h1 key="h1" id="h1" onMouseEnter={() => console.log("onMouseEnter")}>
+          Hello
+        </h1>
+      );
+
+      const Button = () => (
+        <button key="button" id="button" onClick={() => console.log("onClick!")}>
+          Button
+        </button>
+      );
+
+      const Container = () => (
+        <div key="div">
+          <Title />
+          <Button />
+          <Button />
+          <Button />
+        </div>
+      );
+
+      ReactDOM.render(<Container />, document.getElementById("root"));
     </script>
   </body>
 </html>
