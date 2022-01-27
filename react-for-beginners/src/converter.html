@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      const App = () => {
+        const [time, setTime] = React.useState(0);
+        const [isHours, setIsHours] = React.useState(false);
+
+        const onChange = (event) => {
+          const inputValue = event.currentTarget.value;
+          setTime(inputValue);
+        };
+
+        const handleReset = () => {
+          setTime(0);
+        };
+
+        const handleConvert = () => {
+          handleReset();
+          setIsHours((isHours) => !isHours);
+        };
+
+        return (
+          <div>
+            <h1>Minutes to Hours</h1>
+            <input onChange={onChange} value={isHours === false ? time : time * 60} type="name" placeholder="Minutes" disabled={isHours} />
+            <input onChange={onChange} value={isHours === true ? time : Math.round(time / 60)} type="name" placeholder="Hours" disabled={!isHours} />
+            <button onClick={handleReset}>Reset</button>
+            <button onClick={handleConvert}>{isHours === false ? "Switch to Hours" : "Switch to Minutes"}</button>
+          </div>
+        );
+      };
+
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+  </body>
+</html>
