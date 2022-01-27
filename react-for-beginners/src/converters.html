@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      const TimeConverter = () => {
+        const [time, setTime] = React.useState(0);
+        const [isHours, setIsHours] = React.useState(false);
+
+        const onChange = (event) => {
+          const inputValue = event.currentTarget.value;
+          setTime(inputValue);
+        };
+
+        const handleReset = () => {
+          setTime(0);
+        };
+
+        const handleSwitch = () => {
+          handleReset();
+          setIsHours((isHours) => !isHours);
+        };
+
+        return (
+          <div>
+            <h1>Time Converter</h1>
+            <input onChange={onChange} value={isHours === false ? time : time * 60} type="number" placeholder="Minutes" disabled={isHours} />
+            <input onChange={onChange} value={isHours === true ? time : Math.floor(time / 60)} type="number" placeholder="Hours" disabled={!isHours} />
+            <button onClick={handleReset}>Reset</button>
+            <button onClick={handleSwitch}>{isHours === false ? "Switch to Hours" : "Switch to Minutes"}</button>
+          </div>
+        );
+      };
+
+      const DistanceConverter = () => {
+        const [distance, setDistance] = React.useState(0);
+        const [isKilometer, setIsKilometer] = React.useState(false);
+
+        const onChange = (event) => {
+          const distanceValue = event.currentTarget.value;
+          setDistance(distanceValue);
+        };
+
+        const handleReset = () => {
+          setDistance(0);
+        };
+
+        const handleSwitch = () => {
+          setIsKilometer((isKilometer) => !isKilometer);
+        };
+
+        return (
+          <div>
+            <h1>Distance Converter</h1>
+            <input onChange={onChange} value={isKilometer === false ? distance : distance * 1000} type="number" placeholder="Meter" disabled={isKilometer} />
+            <input onChange={onChange} value={isKilometer === true ? distance : Math.floor(distance / 1000)} type="number" placeholder="Kilometer" disabled={!isKilometer} />
+            <button onClick={handleReset} type="button">
+              Reset
+            </button>
+            <button onClick={handleSwitch} type="button">
+              {distance ? "Switch to Kilometer" : "Switch to Meter"}
+            </button>
+          </div>
+        );
+      };
+
+      const App = () => {
+        const [converter, setConverter] = React.useState("distanceConverter");
+
+        const onChange = (event) => {
+          const optionValue = event.currentTarget.value;
+          setConverter(optionValue);
+        };
+
+        return (
+          <div>
+            <select onChange={onChange}>
+              <option value="distanceConverter">Distance Converter</option>
+              <option value="timeConverter">Time Converter</option>
+            </select>
+            {converter === "distanceConverter" ? <DistanceConverter /> : <TimeConverter />}
+          </div>
+        );
+      };
+
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+  </body>
+</html>
