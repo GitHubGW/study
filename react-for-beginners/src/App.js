@@ -1,17 +1,10 @@
 import { useEffect, useState } from "react";
-import User from "./User";
+import ToDo from "./ToDo";
 
 function App() {
-  const [showing, setShowing] = useState(false);
-
-  const onClick = () => {
-    setShowing((showing) => !showing);
-  };
-
   return (
     <div>
-      <button onClick={onClick}>{showing ? "Hide" : "Show"}</button>
-      {showing ? <User /> : null}
+      <ToDo />
     </div>
   );
 }
