@@ -1,31 +1,17 @@
 import { useEffect, useState } from "react";
+import User from "./User";
 
 function App() {
-  const [counter, setCounter] = useState(0);
-  const [keyword, setKeyword] = useState("");
+  const [showing, setShowing] = useState(false);
 
   const onClick = () => {
-    setCounter((counter) => counter + 1);
+    setShowing((showing) => !showing);
   };
-
-  const onChange = (event) => {
-    setKeyword(event.currentTarget.value);
-  };
-
-  console.log("render");
-
-  useEffect(() => {
-    if (keyword.length > 5) {
-      console.log("useEffect");
-    }
-  }, [keyword]);
-
-  console.log("render2");
 
   return (
     <div>
-      <input value={keyword} onChange={onChange} type="text" />
-      <button onClick={onClick}>Click</button>
+      <button onClick={onClick}>{showing ? "Hide" : "Show"}</button>
+      {showing ? <User /> : null}
     </div>
   );
 }
