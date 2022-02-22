@@ -20,13 +20,10 @@ export class MoviesService {
     if (foundMovie === undefined) {
       throw new NotFoundException(`Not Found Movie: ${id}`);
     }
-
     return foundMovie;
   }
 
   createMovie(createMovieDto: CreateMovieDto): boolean {
-    console.log('createMovieDto', createMovieDto);
-
     this.movies.push({
       id: this.movies.length + 1,
       ...createMovieDto,
@@ -36,7 +33,7 @@ export class MoviesService {
 
   deleteMovie(id: number): boolean {
     this.getMovie(id);
-    const filteredMovies = this.movies.filter(
+    const filteredMovies: MovieEntity[] = this.movies.filter(
       (movie: MovieEntity) => movie.id !== +id,
     );
     this.movies = filteredMovies;
@@ -44,7 +41,7 @@ export class MoviesService {
   }
 
   updateMovie(id: number, updateMovieDto: UpdateMovieDto): MovieEntity {
-    const foundMovie = this.getMovie(id);
+    const foundMovie: MovieEntity = this.getMovie(id);
     this.deleteMovie(id);
     const updatedMovie = { ...foundMovie, ...updateMovieDto };
     this.movies.push(updatedMovie);
