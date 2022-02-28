@@ -18,6 +18,14 @@ describe('MoviesService', () => {
       year: 2022,
       genres: ['Action'],
     });
+  }, 10000);
+
+  beforeAll(() => {
+    console.log('beforeAll');
+  });
+
+  afterAll(() => {
+    console.log('afterEach');
   });
 
   it('should be defined', () => {
