@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        border: 3px solid red;
+        display: grid;
+        height: 50vh;
+        gap: 10px;
+        grid-template:
+          "header header header header" 1fr
+          "content content content nav" 2fr
+          "footer footer footer footer" 1fr / 1fr 2fr 2fr 1fr;
+      }
+
+      .box1 {
+        background-color: springgreen;
+        grid-area: header;
+      }
+      .box2 {
+        background-color: dodgerblue;
+        grid-area: content;
+      }
+      .box3 {
+        background-color: orange;
+        grid-area: nav;
+      }
+      .box4 {
+        background-color: paleturquoise;
+        grid-area: footer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box box1"></div>
+      <div class="box box2"></div>
+      <div class="box box3"></div>
+      <div class="box box4"></div>
+    </div>
+  </body>
+</html>
